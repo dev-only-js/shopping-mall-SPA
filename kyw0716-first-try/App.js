@@ -1,18 +1,20 @@
-import cart from "/cart.js";
-import productDetailPage from "/productDetailPage.js";
-import productListPage from "/productListPage.js";
+import List from "./List.js";
+import Detail from "./Detail.js";
+import Cart from "./Cart.js";
 
 export default function App({ target }) {
-  const { pathname } = location;
-  this.element = document.createElement("h1");
-
   this.route = () => {
-    if (pathname === "/") {
-      new productListPage({ target: target }).render();
+    const { pathname } = location;
+
+    if (pathname === "/web/") {
+      // 메인
+      new List({ target: target }).render();
     } else if (pathname.match(/\/products\//) !== null) {
-      new productDetailPage({ target: target }).render();
+      // 상품 디테일
+      new Detail({ target: target }).render();
     } else if (pathname.match(/cart/) !== null) {
-      new cart({ target: target }).render();
+      // 장바구니
+      new Cart({ target: target }).render();
     }
   };
 

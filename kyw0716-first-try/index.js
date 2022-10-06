@@ -1,5 +1,2 @@
 import App from "./App.js";
-
-new App({
-  target: document.querySelector(".App"),
-});
+const app = new App({ target: document.querySelector(".App") });
